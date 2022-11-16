@@ -1,18 +1,19 @@
 import React from 'react'
-const Card = ({ text, color, backcolor }) => {
+const Card = ({ title, list, bgColor }) => {
 
-    const objStyle = {
-        color,
-        background: backcolor,
-
+    const obtStyle = {
+        backgroundColor: bgColor
     }
 
     return (
-        <div style={objStyle}>
-            <h1 >{text}</h1>
-            <p>
-                texto
-            </p>
+        <div className='card' style={obtStyle}>
+            <h1>{title}</h1>
+            <ul>
+                <li>{list[0]}</li>
+                <li>{list[1]}</li>
+                <li>{list[2]}</li>
+                <li>{list[3]}</li>
+            </ul>
         </div>
     )
 }

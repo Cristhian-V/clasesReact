@@ -1,0 +1,15 @@
+.card {
+  background-color: blueviolet;
+  display: inline-block;
+  border-radius: 15px;
+  width: 350px;
+}
+
+ul {
+  color: lightyellow;
+
+}
+
+li {
+  text-align: center;
+}

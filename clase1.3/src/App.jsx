@@ -20,7 +20,7 @@ function App() {
       {
         hide ?
           <Counters />
-          :
+          : 
           <h2>Estoy Oculto!!</h2>
       }
     </div>

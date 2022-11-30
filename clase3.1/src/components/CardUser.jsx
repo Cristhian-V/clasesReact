@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const CardUser = ({user}) => {
-    console.log(user)
   return (
     <div>
             <img src={user.picture.medium} alt="photo user" />

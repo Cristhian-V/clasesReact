@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './App.css'
 import CarInfo from './components/CarInfo'
+import FromNewCar from './components/FromNewCar'
 
 function App() {
 
@@ -23,25 +24,16 @@ function App() {
     getAllcars()
   }, [])
 
-  const handleClick = () => {
-    const data = {
-      brand: "nissan",
-      model: "f478",
-      color: "yellow",
-      year: 2023,
-      price: "25000"
-    }
-
-    createNewCars(data)
-  }
 
   console.log(cars)
 
   return (
     <div className="App">
-      <button onClick={handleClick}>
-        Crear nuevo CAR
-      </button>
+      <div className='form-container'>
+        <FromNewCar 
+        createNewCars={createNewCars}
+        />
+      </div>
       <div className='car'>
         {
           cars?.map(car => (

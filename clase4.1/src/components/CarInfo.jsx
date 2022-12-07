@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 
-const CarInfo = ({ car, getAllcars }) => {
+const CarInfo = ({ car, getAllcars, setDataUpd }) => {
     const id = car.id
     const deleteCar = () => {
         axios.delete(`http://cars-crud.academlo.tech/cars/${id}/`)
@@ -10,13 +10,8 @@ const CarInfo = ({ car, getAllcars }) => {
 
     }
 
-    const patchCar = () => {
-        const data = { price: '1000' }
-        const URL = `http://cars-crud.academlo.tech/cars/${id}/`
-        console.log(URL)
-        axios.patch(URL, data)
-            .then(res => getAllcars())
-            .catch(err => console.log(err))
+    const updateCapture = () => {
+        setDataUpd(car)
     }
     return (
         <div>
@@ -28,7 +23,7 @@ const CarInfo = ({ car, getAllcars }) => {
                 <li><b>Year: </b>{car.year}</li>
             </ul>
             <button onClick={deleteCar}>Eliminar</button>
-            <button onClick={patchCar}>Actualizar</button>
+            <button onClick={updateCapture}>Actualizar</button>
         </div>
     )
 }

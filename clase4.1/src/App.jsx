@@ -7,6 +7,7 @@ import FromNewCar from './components/FromNewCar'
 function App() {
 
   const [cars, setCars] = useState()
+  const [dataUpd, setDataUpd] = useState()
 
   const getAllcars = () => {
     axios.get('http://cars-crud.academlo.tech/cars/')
@@ -16,6 +17,12 @@ function App() {
 
   const createNewCars = data => {
     axios.post('http://cars-crud.academlo.tech/cars/', data)
+      .then(res => getAllcars())
+      .catch(err => console.log(err))
+  }
+
+  const updateCarById = (data) => {
+    axios.patch(`http://cars-crud.academlo.tech/cars/${dataUpd.id}/`, data)
       .then(res => getAllcars())
       .catch(err => console.log(err))
   }
@@ -30,8 +37,11 @@ function App() {
   return (
     <div className="App">
       <div className='form-container'>
-        <FromNewCar 
-        createNewCars={createNewCars}
+        <FromNewCar
+          createNewCars={createNewCars}
+          dataUpd={dataUpd}
+          updateCarById={updateCarById}
+          setDataUpd={setDataUpd}
         />
       </div>
       <div className='car'>
@@ -40,6 +50,7 @@ function App() {
             <CarInfo key={car.id}
               car={car}
               getAllcars={getAllcars}
+              setDataUpd={setDataUpd}
             />
           ))
         }

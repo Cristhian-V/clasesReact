@@ -1,0 +1,32 @@
+.modal{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vw;
+  background-color: rgba(0, 0, 0, 0.705);
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal.is-open{
+ display: flex;
+}
+
+.modal-container{
+  position: relative;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  background-color: azure;
+  width: 400px;
+  overflow: auto;
+}
+
+.modal-close{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  }

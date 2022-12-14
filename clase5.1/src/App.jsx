@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Location from './components/Location.jsx'
 import MainLayout from './components/MainLayout'
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false)
 
   return (
     <div className="App">
@@ -17,15 +19,16 @@ function App() {
           </ul>
         </nav>
       </header>
+      <button onClick={()=>setIsLogin(true)}> Login </button>
       <Routes>
         <Route path='/' element={<h1>Soy el Home</h1>} />
         <Route path='/about' element={<h1>Soy el about</h1>} />
-        <Route path='/contact' element={<h1>Soy el contact</h1>} />
-        <Route path='/location/:id' element={<Location />} />
+
 
         {/* RUTAS ANIDADAS */}
-        <Route element={<MainLayout />}>
-
+        <Route element={<MainLayout isLogin={isLogin}/>}>
+          <Route path='/contact' element={<h1>Soy el contact</h1>} />
+          <Route path='/location/:id' element={<Location />} />
         </Route>
       </Routes>
     </div>

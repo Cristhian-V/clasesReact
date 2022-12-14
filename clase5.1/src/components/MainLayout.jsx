@@ -1,9 +1,12 @@
 import React from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const MainLayout = () => {
-    return (
-        <div>MainLayout</div>
-    )
+const MainLayout = ({isLogin}) => {
+    if(isLogin){
+        return <Outlet/>
+    }else{
+        return <Navigate to='/'></Navigate>
+    }
 }
 
 export default MainLayout
